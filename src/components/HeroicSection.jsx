@@ -6,7 +6,9 @@ const HeroicSection = () => {
       id="home"
       className="min-h-screen flex items-center justify-center bg-white pt-20 relative overflow-hidden"
     >
-
+        <div>
+            <img src="/image1.webp" alt="Hero Background" className="absolute inset-0 w-full h-full object-cover opacity-70"/>
+        </div>
 
       <div className="relative text-center px-6 md:px-12 py-10 md:py-20 z-10">
         <h1 className="text-5xl font-bold text-gray-800 tracking-wide sm:text-6xl lg:text-7xl">
