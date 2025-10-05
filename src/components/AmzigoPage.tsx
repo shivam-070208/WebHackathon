@@ -48,11 +48,29 @@ const AmzigoPage = () => {
       });
     }
 
-  
+    function animatePricing() {
+      const pricingCards = document.querySelectorAll(".pricing-card");
+
+      pricingCards.forEach((card, index) => {
+        if (isInViewport(card, -50)) {
+          setTimeout(() => {
+            card.style.opacity = "1";
+            if (!card.classList.contains("popular")) {
+              card.style.transform = "translateY(0)";
+            } else {
+              card.style.transform = "scale(1.05) translateY(-10px)";
+            }
+          }, index * 150);
+        } else {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(50px)";
+        }
+      });
+    }
 
     function handleScroll() {
       animateTestimonials();
-
+      animatePricing();
     }
 
     window.addEventListener("scroll", handleScroll);
