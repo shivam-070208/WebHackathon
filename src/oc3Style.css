@@ -1,0 +1,136 @@
+:root {
+    --chart-bg: #EFEAE4; /* Light beige/tan background */
+    --text-color: #444444; /* Dark gray text and lines */
+    --light-bar: #A17B79; /* Lighter muted brown */
+    --dark-bar: #684746; /* Darker muted brown */
+    --max-y-value: 1200; /* Max value for calculating bar heights */
+}
+
+body {
+    background-color: var(--chart-bg);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 1100px; /* Increased max width for more space */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: var(--chart-bg); /* Use same color as body for seamless look */
+    border-radius: 8px;
+}
+
+.chart-wrapper {
+    display: flex;
+    height: 400px; /* Fixed height for the chart area */
+    position: relative;
+}
+
+/* Y-Axis Labeling and Grid */
+.y-axis {
+    width: 50px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 12px;
+    position: relative;
+    user-select: none;
+    color: #666; /* Slightly lighter gray for axis numbers */
+}
+
+.y-axis-label {
+    position: absolute;
+    left: -100px; /* Position off the chart */
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 400; /* Normal weight */
+    color: #666; /* Match axis number color */
+}
+
+.chart-area {
+    flex-grow: 1;
+    position: relative;
+    border-bottom: 1px solid #999; /* Softer X-axis line */
+}
+
+/* General grid line style */
+.grid-line {
+    position: absolute;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+/* Specific Target Lines */
+.target-line-solid {
+    top: calc(100% - (600 / var(--max-y-value)) * 100%); /* 600 mark */
+    border-top: 1px solid var(--text-color); /* Darker and solid for 600 line */
+}
+
+.target-line-dashed {
+    top: calc(100% - (500 / var(--max-y-value)) * 100%); /* 500 mark (dashed) */
+    border-top: 1px dashed #999; /* Lighter dashed line for 500 target */
+}
+
+/* Bar Display */
+.bar-container {
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+    justify-content: space-between; /* Use space-between for more controlled gaps */
+    padding: 20px 0 0 0; /* Space for labels above bars, no horizontal padding */
+    z-index: 2;
+}
+
+.bar-group {
+    display: flex;
+    gap: 2px; /* Minimal gap between paired bars */
+    height: 100%;
+    align-items: flex-end;
+    /* Give all groups equal grow capability */
+    flex-grow: 1; 
+    flex-basis: 0; /* Important for flex-grow to work evenly */
+    margin: 0 5px; /* Add some margin around each group for separation */
+}
+
+/* Specific empty space groups for the clustered look */
+.empty-space-group {
+    flex-grow: 0; /* They don't grow */
+    width: 15px; /* Fixed, visible gap */
+    margin: 0 10px;
+}
+
+.bar {
+    width: 50%;
+    position: relative;
+    border-radius: 2px 2px 0 0;
+}
+
+.bar-light {
+    background-color: var(--light-bar);
+}
+
+.bar-dark {
+    background-color: var(--dark-bar);
+}
+
+.bar-label {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px; /* Slightly larger label */
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--text-color);
+}

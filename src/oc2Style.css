@@ -1,0 +1,94 @@
+.container {
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+.header-text {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.header-text p {
+    font-size: 20px;
+    color: #666666; /* Slightly lighter gray for header text */
+    margin: 0;
+    transform: translateY(20px);
+}
+
+.content-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Align download section to the bottom */
+}
+
+.targets-section {
+    line-height: 2.5; /* Spacing between lines */
+    flex-grow: 1; /* Allows the section to take up available space */
+}
+
+.target-line {
+    display: flex;
+    align-items: center;
+    font-size: 16px; /* Slightly larger font for targets */
+    color: #444444;
+    margin-bottom: 10px;
+}
+
+.line-style {
+    width: 30px; /* Length of the line segment */
+    height: 1px;
+    margin-right: 10px;
+    background-color: transparent; /* Default */
+}
+
+.line-style.dashed {
+    border-top: 1px dashed #444444;
+}
+
+.line-style.solid {
+    border-top: 1px solid #444444;
+}
+
+/* ------------------------------------------- */
+/* DOWNLOAD SECTION STYLING */
+/* ------------------------------------------- */
+.download-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 20px; /* Space from the right edge */
+    margin-top: 40px; /* Pushes the section down to the bottom right area */
+    transform: translateY(-25px);
+}
+
+.download-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #444444;
+    font-size: 14px;
+}
+
+.download-icon-circle {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #444444;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+/* Simple arrow icon (Unicode or SVG could be used for a perfect match) */
+.arrow-down {
+    display: block;
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 6px solid #444444;
+    position: relative;
+    top: 2px; /* Adjust position */
+}
